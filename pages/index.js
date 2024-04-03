@@ -37,11 +37,13 @@ export default function HomePage({ places }) {
         <StyledList>
           {places.map((place) => (
             <li key={place.id}>
-              <PlaceCard
-                name={place.name}
-                location={place.location}
-                image={place.image}
-              />
+              <Link href={`/places/${place.id}`}>
+                <PlaceCard
+                  name={place.name}
+                  location={place.location}
+                  image={place.image}
+                />
+              </Link>
             </li>
           ))}
         </StyledList>
@@ -50,3 +52,5 @@ export default function HomePage({ places }) {
     </>
   );
 }
+
+export { StyledDiv };

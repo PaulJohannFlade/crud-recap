@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 const StyledLink = styled(Link)`
   margin-left: 50px;
+  margin-bottom: 50px;
 `;
 
 export default function AddPage({ onSubmit }) {
@@ -14,3 +15,5 @@ export default function AddPage({ onSubmit }) {
     </>
   );
 }
+
+export { StyledLink };
