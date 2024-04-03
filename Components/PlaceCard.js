@@ -24,3 +24,4 @@ export default function PlaceCard({ image, name, location }) {
     </StyledSection>
   );
 }
+export { StyledImage, StyledSection };

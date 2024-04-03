@@ -20,10 +20,12 @@ const StyledLabel = styled.label`
 `;
 
 const StyledButton = styled.button`
-  border-radius: 50%;
-  border: 2px dashed red;
-  background-color: yellow;
-  padding: 10px;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: aqua;
+  text-decoration: none;
+  color: black;
+  padding: 5px;
   cursor: pointer;
 `;
 
@@ -36,13 +38,15 @@ export default function Form({ onSubmit }) {
         required
         id="name"
         name="name"
-        defaultValue={""}></StyledInput>
+        defaultValue={""}
+      ></StyledInput>
 
       <StyledLabel htmlFor="location">Location:</StyledLabel>
       <StyledInput
         id="location"
         name="location"
-        defaultValue={""}></StyledInput>
+        defaultValue={""}
+      ></StyledInput>
 
       <StyledLabel htmlFor="mapURL">Map:</StyledLabel>
       <StyledInput id="mapURL" name="mapURL" defaultValue={""}></StyledInput>
@@ -54,7 +58,8 @@ export default function Form({ onSubmit }) {
       <StyledInput
         id="description"
         name="description"
-        defaultValue={""}></StyledInput>
+        defaultValue={""}
+      ></StyledInput>
 
       <StyledButton>Submit</StyledButton>
     </StyledForm>
