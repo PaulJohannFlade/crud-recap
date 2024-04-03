@@ -1,30 +1,52 @@
-import { initialPlaces } from "@/lib/db.js";
-import { useState } from "react";
 import PlaceCard from "@/Components/PlaceCard";
 import styled from "styled-components";
+import Link from "next/link";
 
 const StyledList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: 1rem;
   list-style-type: none;
+  margin: 50px 0;
+  padding: 0;
 `;
 
-export default function HomePage() {
-  const [places, setPlaces] = useState(initialPlaces);
+const StyledLink = styled(Link)`
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  border: 2px solid black;
+  border-radius: 5px;
+  background-color: aqua;
+  text-decoration: none;
+  color: black;
+  padding: 5px;
+`;
+
+const StyledDiv = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+export default function HomePage({ places }) {
+  // const [places, setPlaces] = useState(initialPlaces);
   return (
-    <div>
-      <StyledList>
-        {places.map((place) => (
-          <li key={place.id}>
-            <PlaceCard
-              name={place.name}
-              location={place.location}
-              image={place.image}
-            />
-          </li>
-        ))}
-      </StyledList>
-    </div>
+    <>
+      <h1 style={{ textAlign: "center" }}>Places in Hamburg</h1>
+      <StyledDiv>
+        <StyledList>
+          {places.map((place) => (
+            <li key={place.id}>
+              <PlaceCard
+                name={place.name}
+                location={place.location}
+                image={place.image}
+              />
+            </li>
+          ))}
+        </StyledList>
+        <StyledLink href="/create">+ Place</StyledLink>
+      </StyledDiv>
+    </>
   );
 }
