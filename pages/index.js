@@ -33,7 +33,6 @@ const StyledDiv = styled.div`
   align-items: center;
 `;
 export default function HomePage({ places }) {
-  // const [places, setPlaces] = useState(initialPlaces);
   return (
     <>
       <h1 style={{ textAlign: "center" }}>Places in Hamburg</h1>

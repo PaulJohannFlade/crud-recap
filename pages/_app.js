@@ -11,19 +11,16 @@ export default function App({ Component, pageProps }) {
 
   const router = useRouter();
 
-  function handleAddPlace(event) {
-    event.preventDefault();
-
-    const form = new FormData(event.target);
-    const data = Object.fromEntries(form);
-
-    setPlaces([...places, { ...data, id: uid() }]);
-
+  function handleAddPlace(newPlace) {
+    setPlaces([...places, { ...newPlace, id: uid() }]);
     router.push("/");
   }
-  function handleEditPlace(data) {
-    console.log("handleEditPlace");
-    setPlaces(places.map((place) => (place.id === data.id ? data : place)));
+  function handleEditPlace(updatedPlace) {
+    setPlaces(
+      places.map((place) =>
+        place.id === updatedPlace.id ? updatedPlace : place
+      )
+    );
     router.push("/");
   }
 
@@ -40,6 +37,7 @@ export default function App({ Component, pageProps }) {
         places={places}
         onDeletePlace={handleDeletePlace}
         onEditPlace={handleEditPlace}
+        onAddPlace={handleAddPlace}
       />
     </>
   );
