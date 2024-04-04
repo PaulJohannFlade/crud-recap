@@ -80,6 +80,7 @@ export default function DetailsPage({ places, onDeletePlace }) {
             Location
           </StyledAnchor>
           <StyleButton onClick={() => onDeletePlace(id)}>Delete</StyleButton>
+          <Link href={`/places/${id}/edit`}>Edit</Link>
         </StyledSection>
       </StyledWrapper>
     </>

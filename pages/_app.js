@@ -21,6 +21,11 @@ export default function App({ Component, pageProps }) {
 
     router.push("/");
   }
+  function handleEditPlace(data) {
+    console.log("handleEditPlace");
+    setPlaces(places.map((place) => (place.id === data.id ? data : place)));
+    router.push("/");
+  }
 
   function handleDeletePlace(id) {
     setPlaces(places.filter((place) => place.id !== id));
@@ -32,9 +37,9 @@ export default function App({ Component, pageProps }) {
       <GlobalStyle />
       <Component
         {...pageProps}
-        onSubmit={handleAddPlace}
         places={places}
         onDeletePlace={handleDeletePlace}
+        onEditPlace={handleEditPlace}
       />
     </>
   );
