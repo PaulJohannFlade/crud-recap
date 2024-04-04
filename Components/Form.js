@@ -20,13 +20,18 @@ const StyledLabel = styled.label`
 `;
 
 const StyledButton = styled.button`
-  border: 2px solid black;
+  border: none;
   border-radius: 5px;
-  background-color: aqua;
+  background-color: #00ffff7d;
   text-decoration: none;
   color: black;
-  padding: 5px;
+  padding: 1rem;
+  font-size: medium;
   cursor: pointer;
+
+  &:hover {
+    background-color: aqua;
+  }
 `;
 
 export default function Form({ onSubmit }) {

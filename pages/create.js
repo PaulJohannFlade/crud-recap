@@ -1,19 +1,11 @@
 import Form from "@/Components/Form";
-import Link from "next/link";
-import styled from "styled-components";
-
-const StyledLink = styled(Link)`
-  margin-left: 50px;
-  margin-bottom: 50px;
-`;
+import { StyledLinkWrapper } from "./places/[id]";
 
 export default function AddPage({ onSubmit }) {
   return (
     <>
+      <StyledLinkWrapper href="/">&larr; Back</StyledLinkWrapper>
       <Form onSubmit={onSubmit} />
-      <StyledLink href="/">&larr; Back</StyledLink>
     </>
   );
 }
-
-export { StyledLink };

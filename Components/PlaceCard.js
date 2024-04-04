@@ -2,7 +2,7 @@ import Image from "next/image";
 import styled from "styled-components";
 
 const StyledImage = styled(Image)`
-  width: 100%;
+  width: 80%;
   height: auto;
 `;
 
@@ -14,6 +14,7 @@ const StyledSection = styled.section`
   justify-content: center;
   gap: 30px;
   align-items: center;
+  padding: 1rem;
 `;
 export default function PlaceCard({ image, name, location }) {
   return (
