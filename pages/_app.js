@@ -1,11 +1,13 @@
 import GlobalStyle from "../styles";
-import { useState } from "react";
 import { initialPlaces } from "@/lib/db.js";
 import { uid } from "uid";
-import Router, { useRouter } from "next/router";
+import { useRouter } from "next/router";
+import useLocalStorageState from "use-local-storage-state";
 
 export default function App({ Component, pageProps }) {
-  const [places, setPlaces] = useState(initialPlaces);
+  const [places, setPlaces] = useLocalStorageState("places", {
+    defaultValue: [...initialPlaces],
+  });
 
   const router = useRouter();
 
@@ -15,19 +17,25 @@ export default function App({ Component, pageProps }) {
     const form = new FormData(event.target);
     const data = Object.fromEntries(form);
 
-    console.log(data);
-
     setPlaces([...places, { ...data, id: uid() }]);
 
     router.push("/");
   }
 
-  console.log(places);
+  function handleDeletePlace(id) {
+    setPlaces(places.filter((place) => place.id !== id));
+    router.push("/");
+  }
 
   return (
     <>
       <GlobalStyle />
-      <Component {...pageProps} onSubmit={handleAddPlace} places={places} />
+      <Component
+        {...pageProps}
+        onSubmit={handleAddPlace}
+        places={places}
+        onDeletePlace={handleDeletePlace}
+      />
     </>
   );
 }

@@ -15,12 +15,16 @@ const StyledLink = styled(Link)`
   position: fixed;
   bottom: 20px;
   left: 20px;
-  border: 2px solid black;
+  border: none;
   border-radius: 5px;
-  background-color: aqua;
+  background-color: #00ffff7d;
   text-decoration: none;
   color: black;
-  padding: 5px;
+  padding: 1rem;
+
+  &:hover {
+    background-color: aqua;
+  }
 `;
 
 const StyledDiv = styled.div`
