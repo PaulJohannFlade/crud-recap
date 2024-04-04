@@ -36,21 +36,19 @@ const StyledButton = styled.button`
 `;
 
 export default function Form({ onSubmit, value, isEdit }) {
-  const router = useRouter();
-  // if (isEdit) {
-  //   return ({ name, location, mapURL, image, description } = value);
-  // }
   function handleSubmit(event) {
     event.preventDefault();
     const form = new FormData(event.target);
     const data = Object.fromEntries(form);
-    console.log(value);
-    const dataPlace = { ...data, id: value.id };
-    onSubmit(dataPlace);
+    if (isEdit) {
+      onSubmit({ ...data, id: value.id });
+    } else {
+      onSubmit(data);
+    }
   }
   return (
     <StyledForm onSubmit={handleSubmit}>
-      <h1>Add Place</h1>
+      <h1>{isEdit ? "Edit Place" : "Add Place"}</h1>
       <StyledLabel htmlFor="name">Name:</StyledLabel>
       <StyledInput
         required
@@ -77,7 +75,11 @@ export default function Form({ onSubmit, value, isEdit }) {
       <StyledInput
         id="image"
         name="image"
-        defaultValue={isEdit ? value.image : ""}
+        defaultValue={
+          isEdit
+            ? value.image
+            : "https://images.unsplash.com/photo-1712079679970-bb45e9ef5b2a?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw4fHx8ZW58MHx8fHx8"
+        }
       ></StyledInput>
 
       <StyledLabel htmlFor="description">Description:</StyledLabel>

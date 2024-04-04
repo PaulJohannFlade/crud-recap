@@ -10,15 +10,16 @@ const StyledWrapper = styled(StyledDiv)`
 `;
 
 const StyledAnchor = styled.a`
-  background-color: #00ffff7d;
   padding: 1rem;
   text-decoration: none;
   cursor: pointer;
   border-radius: 1rem;
-  width: 80%;
+  width: 90%;
   text-align: center;
   margin-bottom: 1rem;
   color: black;
+  font-size: medium;
+  border: 3px solid #00ffff7d;
 
   &:hover {
     background-color: aqua;
